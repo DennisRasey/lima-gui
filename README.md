@@ -49,7 +49,9 @@ It has several themes:
 See <https://doc.qt.io/qt-5/qtwidgets-desktop-systray-example.html>
 
 Tux icon from the Crystal project by Everaldo Coelho.
+
 The icons are licensed under the GNU Lesser General Public License (LGPL).
+They are optional, and CrystalIcons can be disabled in build (default: on).
 
 ## Optional
 

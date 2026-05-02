@@ -69,6 +69,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QSettings>
+#include <QStyle>
 
 #ifndef QT_NO_TERMWIDGET
 #include <QApplication>
@@ -93,7 +94,11 @@ using namespace QSourceHighlite;
 Window::Window()
 {
     iconComboBox = new QComboBox;
+#ifndef QT_NO_CRYSTALICONS
     iconComboBox->addItem(QIcon(":/images/tux.png"), tr("Tux"));
+#else
+    iconComboBox->addItem(QIcon(":/logos/lima.png"), tr("Lima"));
+#endif
     createInstanceGroupBox();
 
     createActions();
@@ -339,7 +344,9 @@ void Window::yamlEditor(QString instanceName, QString setString, QString yamlFil
     createSet->setToolTip("modify the template inplace, using yq syntax");
     createSet->setEnabled(edit);
     createHelp = new QPushButton(tr("Docs..."));
+#ifndef QT_NO_CRYSTALICONS
     createHelp->setIcon(QIcon(":/images/help.png"));
+#endif
 
     connect(createHelp, &QAbstractButton::clicked, this, &Window::helpDocs);
 
@@ -407,7 +414,9 @@ void Window::yamlEditor(QString instanceName, QString setString, QString yamlFil
     createFind->setToolTip("search for text in the yaml document");
     connect(createFind, &QLineEdit::returnPressed, this, &Window::findYAML);
     QPushButton *findButton = new QPushButton(tr("Find"));
+#ifndef QT_NO_CRYSTALICONS
     findButton->setIcon(QIcon(":/images/search.png"));
+#endif
     findButton->setToolTip(tr("Search YAML doc"));
     connect(findButton, &QPushButton::clicked, this, &Window::findYAML);
     QLabel *label4 = new QLabel(tr("Embed"));
@@ -868,26 +877,50 @@ void Window::createInstanceGroupBox()
     instanceListQuiet->setToolTip(tr("Only show names"));
 
     createButton = new QPushButton(tr("Create"));
+#ifndef QT_NO_CRYSTALICONS
     createButton->setIcon(QIcon(":/images/add.png"));
+#endif
     quickButton = new QPushButton(tr("Quick"));
+#ifndef QT_NO_CRYSTALICONS
     quickButton->setIcon(QIcon(":/images/quick.png"));
+#endif
     aboutButton = new QPushButton(tr("About"));
+#ifndef QT_NO_CRYSTALICONS
     aboutButton->setIcon(QIcon(":/images/info.png"));
+#endif
     refreshButton = new QPushButton(tr("Refresh"));
+#ifndef QT_NO_CRYSTALICONS
     refreshButton->setIcon(QIcon(":/images/reload.png"));
+#endif
 
     shellButton = new QPushButton(tr("Shell"));
+#ifndef QT_NO_CRYSTALICONS
     shellButton->setIcon(QIcon(":/images/terminal.png"));
+#endif
     displayButton = new QPushButton(tr("Display"));
+#ifndef QT_NO_CRYSTALICONS
     displayButton->setIcon(QIcon(":/images/desktopshare.png"));
+#endif
     startButton = new QPushButton(tr("Start"));
+#ifndef QT_NO_CRYSTALICONS
     startButton->setIcon(QIcon(":/images/player_start.png"));
+#else
+    startButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+#endif
     stopButton = new QPushButton(tr("Stop"));
+#ifndef QT_NO_CRYSTALICONS
     stopButton->setIcon(QIcon(":/images/player_stop.png"));
+#else
+    stopButton->setIcon(style()->standardIcon(QStyle::SP_MediaStop));
+#endif
     inspectButton = new QPushButton(tr("Inspect"));
+#ifndef QT_NO_CRYSTALICONS
     inspectButton->setIcon(QIcon(":/images/advanced.png"));
+#endif
     removeButton = new QPushButton(tr("Remove"));
+#ifndef QT_NO_CRYSTALICONS
     removeButton->setIcon(QIcon(":/images/remove.png"));
+#endif
 
     updateButtons();
 
@@ -1528,7 +1561,11 @@ void Window::createTrayIcon()
     trayIconMenu->addAction(aboutQtAction);
     trayIconMenu->addAction(quitAction);
 
+#ifndef QT_NO_CRYSTALICONS
     trayIconIcon = new QIcon(":/images/tux.png");
+#else
+    trayIconIcon = new QIcon(":/logos/lima.png");
+#endif
 
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setContextMenu(trayIconMenu);

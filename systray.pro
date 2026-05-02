@@ -19,6 +19,9 @@ macx: ICON    = icons/tux.icns
 DISTFILES += \
     LICENSE
 
+//DEFINES += QT_NO_CRYSTALICONS
+RESOURCES     += images.qrc
+
 //DEFINES += QT_NO_SOURCEHIGHLITER
 include(QSourceHighlite/QSourceHighlite.pri)
 
