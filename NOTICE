@@ -1,0 +1,29 @@
+lima-gui
+Copyright The Lima Authors
+
+Originally developed by @afbjorklund
+Copyright (C) 2021 Anders F Björklund
+
+Based on the Qt SDK "systray" example
+Copyright (C) 2016 The Qt Company Ltd.
+
+================================================
+THIRD-PARTY DEPENDENCIES
+================================================
+
+This project includes: (as optional dependencies)
+
+.clang-format
+Copyright (C) 2016 Olivier Goffart <ogoffart@woboq.com>
+
+CrystalIcons
+Copyright (c) 2006-2007 Everaldo Coelho
+
+QSourceHighlite <https://github.com/Waqar144/QSourceHighlite>
+Copyright (c) 2019-2020 Waqar Ahmed -- <waqar.17a@gmail.com>
+
+QrwEmoticons <https://github.com/raven-worx/qrwemoticons>
+OpenMoji <https://www.openmoji.org/>
+
+QVNCClient <https://bitbucket.org/amahta/qvncclient>
+Copyright (c) 2016 Amin Ahmadi <info@amin-ahmadi.com>
